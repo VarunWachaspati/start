@@ -4,8 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use mysql as the database for Active Record
-gem 'sqlite3', group: [:development, :test]
-gem 'pg', group: [:production]
+#gem 'sqlite3', group: [:development, :test]
+gem 'pg'#, group: [:production]
 gem 'heroku', '~> 3.15.0'
 gem 'oauth'
 gem 'json'
