@@ -1,0 +1,33 @@
+<div class="container">
+<div class="page-header">
+<h4>Live Feed<small> All the latest updates</small></h4>
+  </div>
+<% @microposts.each do |micropost| %>
+  <div class="row">
+    <div class="col-lg-2">
+      <a href="#" class="thumbnail d-profile">
+        <%  @startup=Startup.find(micropost.startup_id) %>
+        <% if @startup.pic_file_name %>
+         <%= image_tag(@startup.pic.url(:thumb),:class=>"news-image") %>
+        <% else %>
+                 <%= image_tag("logo.png",:class=>"news-image") %> 
+        <% end %>
+    </a>
+    </div>
+    <div class="col-lg-10 ">
+      <h6 class="demo-panel-title"><%=link_to @startup.name,@startup %></h6>
+          <div class="share mrl">
+            <ul>
+              <li>
+                <p><%= micropost.content %></p>
+              </li>
+            <li><small>Posted <%= time_ago_in_words(micropost.created_at) %> ago</small></li>
+            </ul>
+            
+          </div> <!-- /share -->
+          
+    </div>
+   </div>
+<% end %>
+<%= will_paginate @microposts %>
+</div>

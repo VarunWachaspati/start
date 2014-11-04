@@ -1,0 +1,101 @@
+<div class="pro-details">
+<div class=" ">
+  <div align="center">
+    <% if @startup.pic_file_name %>
+                <%= image_tag @startup.pic.url(:thumb),:class=>"profile-img" %><br><br>
+              <% else %>
+                 <%= image_tag("logo.png",:class=>"profile-img") %><br><br> 
+              <% end %>
+    <h2><%= @startup.name %></h2>
+    <h6><%= @startup.tagline %></h6>
+    <% if user_type=="Student" %>
+            <% if current_user.follows?(@startup) %>
+     <%= button_to "Unfollow",{:controller => "startups", :action => "unfollow",:id => @startup.id},  :method=>:post,:class=>"btn btn-lg btn-primary" %>
+  <% else %>
+   <%= button_to 'Follow', {:controller => "startups", :action => "follow",:id => @startup.id},  :method=>:post,:class=>"btn btn-lg btn-primary" %>
+<% end %>
+<% else %>
+<% if correct_startup_user(@startup) %>
+                <%= link_to 'Edit Info', edit_startup_path(@startup),:class=>"btn btn-lg btn-primary" %><br>
+<% end %>
+<% end %>
+  </div><br>
+  <div class="well">
+    <div class="row">
+      <div class="col-xs-4">
+        <h6>
+          About Startup
+          
+        </h6>
+        <hr>
+        <div class="">
+          <%= @startup.about %>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <h6>
+          Founder Info
+        </h6>
+        <hr>
+        <div class="">
+          <%= @startup.founderinfo %>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <h6>
+          Vitals
+        </h6>
+        <hr>
+        <div class="">
+          <p>Location: <a href="#"><%= @startup.location %></a></p>
+          <p>Link: <a href="<%= @startup.link %>"><%= @startup.link %></a></p>
+          <p>Size: <a href="#"><%= @startup.size %></a></p>
+          <p>Funding: <a href="#"><%= @startup.funding %></a></p>
+          <p><i class="fa fa-phone"></i>&nbsp<%= @startup.phone %>&nbsp&nbsp&nbsp<i class="fa fa-envelope"></i>&nbsp<%= @startup.email %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="container">
+<div class="page-header">
+<h4>Live Feed<small>All the latest updates</small></h4>
+  </div>
+<% if correct_startup_user(@startup) %>
+                
+                  <%= form_for(@nmicropost) do |f| %>
+                            <div class="field col-md-6">
+                               <%= f.text_area :content, placeholder: "Compose new micropost...",:class=>"form-control" %>
+                            </div>
+                            <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %><br><br>
+           <% end %>
+<% @microposts.each do |micropost| %>
+  <div class="row">
+    <div class="col-lg-2">
+      <a href="#" class="thumbnail d-profile">
+      <% if @startup.pic_file_name %>
+                <%= image_tag @startup.pic.url(:thumb),:class=>"news-image" %><br><br>
+              <% else %>
+                 <%= image_tag("logo.png",:class=>"news-image") %><br><br> 
+              <% end %>
+    </a>
+    </div>
+    <div class="col-lg-10 ">
+      <h6 class="demo-panel-title"><a href="#"><%= @startup.name %></a></h6>
+          <div class="share mrl">
+            <ul>
+              <li>
+                <p><%= micropost.content %></p>
+              </li>
+            <li><small>Posted <%= time_ago_in_words(micropost.created_at) %> ago</small></li>
+            </ul>
+            
+          </div> <!-- /share -->
+          
+    </div>
+   </div>
+<% end %>
+<%= will_paginate @microposts %>
+</div>
