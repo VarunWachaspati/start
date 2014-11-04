@@ -52,6 +52,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 #BUndler for production
 #gem 'bundler', '~> 1.6.3'
+#Rake for heroku
+gem 'rake', '~> 10.3.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
