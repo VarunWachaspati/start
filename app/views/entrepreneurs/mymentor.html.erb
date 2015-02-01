@@ -1,0 +1,36 @@
+ <div class="container">
+  <div class="page-header">
+  <h4>Mentors<small> The Ones who are On Board</small></h4>
+  </div>
+  </div>
+<div class="container">
+    <div class="row demo-tiles">
+   <% @mentors.each do |mentor| %>
+        <% if current_user.followed_by?(mentor) %>
+        <div class="col-xs-4">
+          <div class="tile">
+            <% if mentor.pic_file_name %>
+                <%= image_tag mentor.pic.url(:thumb),:class=>"tile-image big-illustration" %>
+            <% else %>
+                 <%= image_tag  "logo.png",:class=>"tile-image big-illustration" %>
+            <% end %>
+            <h3 class="tile-title"><%=link_to mentor.fname+" "+mentor.lname,mentor %></h3>
+            
+<% if user_type=="Entrepreneur" %>
+            
+     <%= button_to "Cancel Mentorship",{:controller => "mentors", :action => "unfollow",:id => mentor.id},  :method=>:post,:class=>"btn btn-primary btn-large btn-block" %>
+  
+
+<% else %>
+<%= link_to 'Know More',mentor,:class=>"btn btn-primary btn-large btn-block" %>
+<% end %>
+<%end%>
+          </div>
+        </div>
+
+<% end %>
+        
+      </div> <!-- /tiles -->
+  </div>
+<%= will_paginate @mentors %>
+</div>

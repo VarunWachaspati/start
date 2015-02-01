@@ -21,7 +21,11 @@ class LoginsController < ApplicationController
    elsif @user.type=="Entrepreneur"
       @entrepreneur=Entrepreneur.find_by(linkedin_id: @string)
       sign_in(@entrepreneur,"Entrepreneur")
-      redirect_to @entrepreneur 
+      redirect_to @entrepreneur
+      elsif @user.type=="Mentor"
+      @mentor=Mentor.find_by(linkedin_id: @string)
+      sign_in(@mentor,"Mentor")
+      redirect_to @mentor  
    end
      elsif signed_in?
       redirect_to current_user

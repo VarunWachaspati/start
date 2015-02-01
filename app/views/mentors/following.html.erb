@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="page-header">
+  <h4>Entrepreneurs<small> The Ones I Mentor</small></h4>
+  </div>
+  </div>
+<div class="container">
+    <div class="row demo-tiles">
+   <% @entrepreneurs.each do |entrepreneur| %>
+        <div class="col-xs-4">
+          <div class="tile">
+            
+                 <%= image_tag  "logo.png",:class=>"tile-image big-illustration" %>
+            
+            <h3 class="tile-title"><%=link_to entrepreneur.fname+" "+entrepreneur.lname,entrepreneur %></h3>
+            <br>
+<% if user_type=="Mentor" %>
+            <% if current_user.follows?(entrepreneur) %>
+     <%= button_to "Cancel Mentorship",{:controller => "entrepreneurs", :action => "unfollow",:id => entrepreneur.id},  :method=>:post,:class=>"btn btn-primary btn-large btn-block" %>
+  <% else %>
+   <%= button_to 'Follow', {:controller => "entrepreneurs", :action => "follow",:id => entrepreneur.id},  :method=>:post,:class=>"btn btn-primary btn-large btn-block" %>
+<% end %>
+<% else %>
+<%= link_to 'Know More',entrepreneur,:class=>"btn btn-primary btn-large btn-block" %>
+<% end %>
+
+          </div>
+          <br>
+        </div>
+
+<% end %>
+        
+      </div> <!-- /tiles -->
+  </div>
+<%= will_paginate @entrepreneurs %>
+</div>

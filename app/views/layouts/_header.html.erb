@@ -16,7 +16,9 @@
       <ul class="nav navbar-nav">
        <% if signed_in? %>
         <li><a href="/allstartups">Startups</a></li>
-        <li><a href="/allstudents">People</a></li>
+        <li><a href="/allentrepreneurs">Founders</a></li>
+        <li><a href="/allstudents">Developers</a></li>
+        <li><a href="/allmentors">Mentors</a></li>
       </ul>
 
    
@@ -25,7 +27,7 @@
 <% if signed_in? %>
       <%  @email=current_user.email %>
        <%   @tempuser=Users.find_by(email: @email) %>
-     <% if (@tempuser.type) !="Student" %>
+     <% if (@tempuser.type) =="Entrepreneur" %>
         <% @startups = current_user.startups %>
      <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">My Startups</a>
          <ul class="dropdown-menu">
@@ -36,14 +38,18 @@
             <li><%= link_to 'Add New Startup',new_startup_path %></li>
          </ul>
         </li>
-     <% else %>
-        <li><a href="/sfollowing">Following</a> 
+     <% elsif (@tempuser.type)=="Student"
+         %>
+        <li><a href="/sfollowing">Following</a>
+        <%else%>
+         <li><a href="/myent">Wannabe Apprentices</a>
      <% end %>
 <% end %>
      <li><%= link_to "Home",current_user %></a></li>
   <li class="dropdown">
-          <% if user_type=="Student" %>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><% if current_user.pic_file_name %>
+          <% if user_type=="Student"&&"Mentor" %>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <% if current_user.pic_file_name %>
                 <%= image_tag current_user.pic.url(:thumb),:class=>"nav-img" %>
             <% else %>
                  <%= image_tag("profile.jpg",:class=>"nav-img") %>
@@ -56,8 +62,22 @@
                 <li><%= link_to "Profile", "/sprofile" %></li>
                 <li><%= link_to "Update Profile", edit_student_path(current_user) %></li>
                 <li><%= link_to "Update Password", "/supdatepwd" %></li>
-                <% else %>
+                <% elsif user_type=="Entrepreneur"%>
                 <li><%= link_to "Update Password", "/eupdatepwd" %></li>
+                <li><%= link_to "Requested Mentor", "/efollowing" %></li>
+                <li><%= link_to "My Mentors", "/ementor" %></li>
+                <li><%= link_to 'Your Conversations', "/conversation" %></li>
+                
+
+                <% else%>
+                <li><%= link_to "Profile", "/mprofile" %></li>
+                <li><%= link_to "My Apprentices", "/mfollowing" %></li>
+                <li><%= link_to 'Your Conversations', conversations_path %></li>
+          
+                <li><%= link_to "Update Profile", edit_mentor_path(current_user) %></li>
+                <li><%= link_to "Update Password", "/mupdatepwd" %></li>
+                
+                
                 <% end %>
                 <li class="divider"></li>
                 <li>

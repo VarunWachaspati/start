@@ -58,7 +58,7 @@ class StudentsController < ApplicationController
       @user.update_attribute(:type,"Student")
       @user.save
       sign_in(@student,"Student")
-      flash[:success] = "Welcome to Mashup!Update your profile for better opportunities"
+      flash[:success] = "Welcome to StartupSphere!Update your profile for better opportunities"
       redirect_to @student
     else
       @user=@student

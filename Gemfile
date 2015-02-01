@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
@@ -19,11 +19,14 @@ gem "font-awesome-rails", "~> 4.0.3.1"
 
 #For paginating pages
 gem 'will_paginate', '~> 3.0'
-
+gem 'bootstrap-will_paginate'
 gem 'rails-simple-search' , "~> 0.9.3"
 
 gem "socialization"
 
+gem "mailboxer"
+#To make select boxes more friendly
+gem "chosen-rails"
 #For hyperlinking text
 #gem "autolink", "~> 3.0.0"
 
@@ -31,13 +34,13 @@ gem "socialization"
 gem "paperclip", "~> 3.0"
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.5'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.1.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -47,13 +50,16 @@ gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
-
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 #BUndler for production
 #gem 'bundler', '~> 1.6.3'
 #Rake for heroku
-gem 'rake', '~> 10.3.2'
+gem 'rake'
+
+#Gravatar Image tag Gem(Temporary)
+#gem 'gravatar-image-tag'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -69,7 +75,7 @@ end
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano', group: :development
+#gem 'capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

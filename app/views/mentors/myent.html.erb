@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="page-header">
+  <h4>Entrepreneurs<small> Who have sent request</small></h4>
+  </div>
+  </div>
+<div class="container">
+    <div class="row demo-tiles">
+   <% @entrepreneurs.each do |entrepreneur| %>
+        <% if current_user.followed_by?(entrepreneur) && !current_user.follows?(entrepreneur) %>
+        <div class="col-xs-4">
+          <div class="tile">
+            <%= image_tag  "logo.png",:class=>"tile-image big-illustration" %>
+            <h3 class="tile-title"><%=link_to entrepreneur.fname+" "+entrepreneur.lname,entrepreneur %></h3>
+            
+        <% if user_type=="Mentor" %>
+            
+     <%= button_to "Follow",{:controller => "entrepreneurs", :action => "follow",:id => entrepreneur.id},  :method=>:post,:class=>"btn btn-primary btn-large btn-block" %>
+  <% end %>
+<% end %>
+
+          </div>
+        </div>
+
+<% end %>
+        
+      </div> <!-- /tiles -->
+  </div>
+
+<%= will_paginate @entrepreneurs %>
+</div>

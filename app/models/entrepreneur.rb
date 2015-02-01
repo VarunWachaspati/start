@@ -1,4 +1,7 @@
 class Entrepreneur < ActiveRecord::Base
+   acts_as_follower
+   acts_as_followable
+   acts_as_messageable
    has_many :startups, dependent: :destroy
    before_save { self.email = email.downcase }
    validates :fname, presence: true, length: { maximum: 20 }
@@ -8,6 +11,8 @@ class Entrepreneur < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
    has_secure_password
    validates :password, length: { minimum: 6 }
+   has_attached_file :pic, :styles => 
+          { :medium => "300x300>", :thumb => "100x100>" }
 
    def Entrepreneur.new_remember_token
     SecureRandom.urlsafe_base64

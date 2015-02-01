@@ -6,11 +6,17 @@ module SessionsHelper
        cookies.permanent[:remember_token] = remember_token
        user.update_attribute(:remember_token, Student.encrypt(remember_token))
        self.current_user = user
-    else
+    elsif type=="Entrepreneur"
        remember_token = Entrepreneur.new_remember_token
        cookies.permanent[:remember_token] = remember_token
        user.update_attribute(:remember_token, Entrepreneur.encrypt(remember_token))
-       self.current_user = user     
+       self.current_user = user
+       else
+       remember_token = Mentor.new_remember_token
+       cookies.permanent[:remember_token] = remember_token
+       user.update_attribute(:remember_token, Mentor.encrypt(remember_token))
+       self.current_user = user
+            
     end
    end
       
@@ -26,9 +32,14 @@ module SessionsHelper
     if $type=="Entrepreneur"
     remember_token = Entrepreneur.encrypt(cookies[:remember_token])
     @current_user ||= Entrepreneur.find_by(remember_token: remember_token)
+    elsif $type=="Mentor"
+      
+      remember_token = Mentor.encrypt(cookies[:remember_token])
+    @current_user ||= Mentor.find_by(remember_token: remember_token)
     else
     remember_token = Student.encrypt(cookies[:remember_token])
     @current_user ||= Student.find_by(remember_token: remember_token)
+    
     end 
    end
 
@@ -57,9 +68,12 @@ module SessionsHelper
   def correct_user
     if $type=="Entrepreneur"
       @user = Entrepreneur.find(params[:id])
-    else 
+    elsif $type=="Student"
       @user = Student.find(params[:id])
+    else
+      @user = Mentor.find(params[:id])
     end
+
       redirect_to(root_url) unless current_user==@user
   end
 

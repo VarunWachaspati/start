@@ -9,6 +9,9 @@ class SessionsController < ApplicationController
 	       user=Student.find_by(email: params[:session][:email].downcase)
 	    elsif @temp.type=="Entrepreneur"
 	       user=Entrepreneur.find_by(email: params[:session][:email].downcase)
+	    elsif @temp.type=="Mentor"
+	       user=Mentor.find_by(email: params[:session][:email].downcase)
+	    
 	    end
 	    if user && user.authenticate(params[:session][:password])
 	      # Sign the user in and redirect to the user's show page.
