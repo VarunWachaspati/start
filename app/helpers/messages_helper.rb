@@ -1,10 +1,8 @@
 module MessagesHelper
-  def recipients_options
+  def recipients_options(mentor)
     s = ''
     #@users= Entrepreneur.all + Mentor.all
-    Entrepreneur.all do |user|
-      s << "<option value='#{user.fname}' >#{user.fname}</option>"
-    end
+    s << "<option value='#{mentor.fname}' >#{mentor.lname}</option>"
     s.html_safe
   end
 end

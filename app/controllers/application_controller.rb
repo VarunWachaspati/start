@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   include StartupsHelper
   include StudentsHelper
   include MentorsHelper
+  include MessagesHelper
   #rescue_from ActiveRecord::RecordNotFound do
   #flash[:warning] = 'Resource not found.'
   #redirect_back_or root_path

@@ -22,6 +22,7 @@ Mashup::Application.routes.draw do
     member do
       post 'follow'
       post 'unfollow'
+      post 'message'
     end
   end
   
@@ -31,6 +32,7 @@ Mashup::Application.routes.draw do
   member do
     post 'follow'
     post 'unfollow'
+
 end
 end
   
@@ -43,13 +45,21 @@ end
   end
 end
   
-  resources :messages, only: [:new,:create]
+  resources :messages#, only: [:new,:create]
+  resources :messages do
+    member do
+       post 'new'
+       post 'create'
+     end
+   end
+
   resources :students
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
   #get "students/new"
   root 'logins#home'
   #match '/eprofile', to: 'entrepreneurs#profile', via: 'get'
+ 
   match '/emptytrash', to: 'conversations#empty_trash', via: 'delete'
   match '/conversation',to: 'conversations#index',via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'

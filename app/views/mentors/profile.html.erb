@@ -11,6 +11,10 @@
      <% if @user==current_user %>
                 <%= link_to 'Edit Info', edit_mentor_path(@user),:class=>"btn btn-lg btn-primary" %><br>
       <% end %>
+      <br>
+      <% if !@user==current_user %>
+      <%= button_to "Send Message",{:controller => "messages", :action => "create",:id => mentor.id},  :method=>:post,:class=>"btn btn-primary btn-large btn-block" %><br>
+      <% end %>
   </div><br>
   <div class="well">
     <div class="row">

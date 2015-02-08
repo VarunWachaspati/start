@@ -45,6 +45,14 @@ def follow
   def show
     @user = Mentor.find(params[:id])
     @microposts = Micropost.paginate(page: params[:page])
+     @search = Search.new(:mentor, params[:search])
+    @search.order = 'lname'
+    @mentors = (@search.run).paginate(:page => params[:page], :per_page => 9)
+       store_location
+    @mentor = Mentor.find(params[:id])
+    
+    
+ 
   end
 
   def myent
@@ -85,6 +93,11 @@ def follow
       render 'new'
       #redirect_to "/students/new"
     end
+  end
+def message
+    store_location
+    @mentor = Mentor.find(params[:id])
+    redirect_to new_message_path
   end
 
 

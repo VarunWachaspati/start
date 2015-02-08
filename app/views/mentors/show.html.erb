@@ -44,6 +44,9 @@
                  <%= image_tag("profile.jpg") %><br><br> 
            <% end %>
     <h2><%= @user.fname %>&nbsp<%= @user.lname %></h2>
+    
+      <%= button_to "Send Message",{:controller => "messages", :action => "new",:id => (@mentor).id},  :method=>:post,:class=>"btn btn-primary btn-small btn-block" %><br>
+      
   </div><br>
   <div class="well">
     <div class="row">

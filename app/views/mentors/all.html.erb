@@ -51,8 +51,8 @@
             <% else %>
                  <%= image_tag  "logo.png",:class=>"tile-image big-illustration" %>
             <% end %>
-            <h3 class="tile-title"><%= mentor.fname+" "+mentor.lname %></h3>
-            <p><%= mentor.skills %></p>
+            <h3 class="tile-title"><%=link_to mentor.fname+" "+mentor.lname,mentor %></h3>
+            <p></p>
             <% if user_type=="Entrepreneur" %>
             <% if current_user.follows?(mentor) %>
      <%= button_to "Cancel Mentorship",{:controller => "mentors", :action => "unfollow",:id => mentor.id},  :method=>:post,:class=>"btn btn-primary btn-large btn-block" %>

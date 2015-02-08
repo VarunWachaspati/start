@@ -14,6 +14,10 @@ class Entrepreneur < ActiveRecord::Base
    has_attached_file :pic, :styles => 
           { :medium => "300x300>", :thumb => "100x100>" }
 
+   def mailboxer_email(object)
+    email
+   end
+   
    def Entrepreneur.new_remember_token
     SecureRandom.urlsafe_base64
    end

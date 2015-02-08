@@ -9,7 +9,7 @@
         <% message = receipt.message %>
  
         <%= message.sender.fname %>
-          says : "
+          : "
         <%= message.body %>"
         
         &nbsp;&nbsp;&nbsp;&nbsp;<small>at  <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></small>

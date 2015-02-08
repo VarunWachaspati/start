@@ -1,165 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8">
-    <title>Flat UI</title>
+  	<meta charset="utf-8">
+    <title>Startup Sphere</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
 
-    <!-- Loading Bootstrap -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- Loading Flat UI -->
-    <link href="css/flat-ui.css" rel="stylesheet">
-
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="css/homepage.css">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-  </head>
-  <body>
-  <video autoplay  id="bgVideo">
-    <source src="<%= asset_path("preview.webm") %>" type="video/webm">
-    
-  </video>
-  <div class="test">
-    <div class="info">
-       <h2>STARTUP SPHERE</h2> 
-       <h6><b>CONNECTING THE ECOSYSTEM</b></h6>
-       <button class="btn btn-primary" data-toggle="modal" data-target="#RegisterModal">Register to get started</button>&nbsp&nbsp&nbsp&nbsp<button class="btn btn-inverse" data-toggle="modal" data-target="#LoginModal">Member's Login</button>
-    </div>  
-  </div> 
-  <!--<div class="test2">
-    <div class="info2">
-       <h5>Register Here for free</h5><br><br>
-       <div class="row">
-           <div class="span5 well">
-              <label>Enter Name</label> 
-              <input class="form-control" type="text" placeholder="First Name">&nbsp&nbsp&nbsp<input class="form-control" type="text" placeholder="Last Name">
-              <label>Password</label> 
-              <input class="form-control" type="text" placeholder="enter username">&nbsp&nbsp&nbsp<input class="form-control" type="text" placeholder="Confirmation">
-              <label>Register as</label> 
-              <select class="form-control" >
-                  <option>student</option>
-                  <option>Entrepreneur</option>
-              </select>
-              <hr>
-              <button class="btn btn-primary">
-                  Submit
-              </button>&nbsp&nbsp&nbspOr&nbsp&nbsp&nbsp<button class="btn btn-info">Sign up via linkedin</button>
-              
-            </div>
-            <div class="span4 signup">
-                <h6>As a Student</h6>
-                <p><small>Connect with startups. Interact with mentors and get latest updates form the world of entrepreneurship.</small></p> 
-                <br>
-                <h6>As an Entrepreneur</h6>
-                <p><small>Connect with students. Take a look at their skillset and hire the best ones. Also, interact with other entrepreneurs</small></p> 
-            </div>
-           </div>
-       </div>
-    </div>  
-  </div> 
-  --> 
-  <div class="test3" align="center">
-     <h6> <font color="#34495E">Wanna know more about the experience?&nbsp&nbsp </font><a href="http://celbits.org/" class="btn btn-primary">Know about other  CEL projects</a></h6> 
-  </div>
-  <div class="test4">
-    <div class="info2">
-       <h5>What does <b>Startup Sphere </b>do?</h5>
-         <div class="row info3" align="center">
-             <div class="col-md-3">
-               <img src="<%= asset_path("Banner@2x.png") %>" class="icon">
-               <p>Connect</p><br>
-               <p><small>We Connect Startups and Students with each other</small></p>  
-             </div>
-             <div class="col-md-3 offset1">
-               <img src="<%= asset_path("Compas@2x.png") %>" class="icon">
-               <p>Search </p><br>
-               <p><small>Startups can search for talented interns and co-founders</small></p>   
-             </div>
-             <div class="col-md-3 offset1">
-                <img src="<%= asset_path("Money@2x.png") %>" class="icon">
-               <p>Resources and Support</p><br>
-               <p><small>We provide startups with resources and support </small></p>  
-             </div>
 
-         </div>
-    
-  </div> 
-  </div> 
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/flexslider.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="<%= asset_path("favicon.ico") %>" >
+
+    <!-- Color Scheme -->
+    <link id="test" rel="stylesheet" type="text/css" href="css/colors/red.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/colors/blue.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/colors/green.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/colors/black.css"> -->  
+    <!-- <link rel="stylesheet" type="text/css" href="css/colors/yellow.css"> -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+  //Home Image Slider
+  $.backstretch([
+   "<%= asset_path('1.jpg') %>",
+    "<%= asset_path('2.jpg') %>",
+    "<%= asset_path('3.jpg') %>"   
+  ], {duration: 4500, fade: 'slow'});
   
+});
+    </script>
 
-    
-      <div class="bottom-menu bottom-menu-inverse">
-        <div class="container">
-          <div class="row" align="center">
-            A CENTER FOR ENTREPRENEURIAL LEADERSHIP, BITS PILANI initiative
+  </head>
+<body>
 
-            </div>
+  <!-- Preloader -->
+  <div id="mask">
+    <div id="loader">      
+    </div>
+  </div>
+  <!-- End Preloader -->
+  
+  <!-- Home Section -->  
+  <section id="home">
+    <div class="container">
+      <div class="hero">
+        <hr>
+        <!-- Home Slider -->
+        <div class="home-slider">
+          <ul class="slides">
+            <li>
+              <h1>Ideas</h1>
+            </li>
+            <li>
+              <h1>Inspiration</h1>
+            </li>
+            <li>
+              <h1>Insights</h1>
+            </li>
+            <li>
+              <h1>Influence</h1>
+            </li>
+          </ul>
+        </div>
+        <!-- End Home Slider -->               
+        <hr>
+        <p class="center"><data-toggle="modal" data-target="#RegisterModal" href="#" class="btn btn-empty btn-lg">Get Started</a></p>
+      </div>
+    </div>
+  </section>
+  <!-- End Home Section -->
+
+  <!-- Header -->
+  <header class="navbar navbar-default topnav" role="banner">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#home"><%= image_tag  "logo.png",:class=>"logo",:id =>"logo" %> Startup Sphere</a>
+        
+      </div>
+      <div class="collapse navbar-collapse" id="navigation">
+        <ul class="nav navbar-nav navbar-right" id="nav">
+          <li class="active"><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="team.html#team">Team</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#LoginModal">Login</a></li>
+          
+
+        </ul>
+      </div>
+    </div>
+  </header>
+  <!-- End Header -->  
+
+  <!-- About Section -->  
+  <section id="about" class="section">
+    <div class="container">    
+      <div class="title col-md-8 col-sm-10 col-xs-12">
+        <h1>About <strong>Us</strong></h1>
+        <hr>        
+      </div>
+      <!-- About Text -->
+      <p class="about-text">Startup sphere is an initiative by CEL, BITS Pilani, aimed at promoting entrepreneurship. This platform enables students startup-founders and alumni to communicate and collaborate with each other.</p>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 service-box">
+        <div class="service animated hiding" data-animation="fadeInUp" data-delay="0">
+          <span class="fa-stack fa-4x">
+            <i class="fa fa-circle fa-2x fa-stack-2x"></i>
+            <i class="fa fa-desktop fa-stack-1x service-icon"></i>
+          </span><br>
+          <h3>Connect</h3>
+          <p>Connect with people from your alma mater and find the right person to mentor your venture.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12 service-box">
+        <div class="service animated hiding" data-animation="fadeInUp" data-delay="500">
+          <span class="fa-stack fa-4x">
+            <i class="fa fa-circle fa-2x fa-stack-2x"></i>
+            <i class="fa fa-magic fa-stack-1x service-icon"></i>
+          </span><br>
+          <h3>Discover</h3>
+          <p>Discover ventures and events on campus.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12 service-box">
+        <div class="service animated hiding" data-animation="fadeInUp" data-delay="1000">
+          <span class="fa-stack fa-4x">
+            <i class="fa fa-circle fa-2x fa-stack-2x"></i>
+            <i class="fa fa-camera fa-stack-1x service-icon"></i>
+          </span><br>
+          <h3>Expert advice</h3>
+          <p>Get constructive criticism and honest opinions.</p>
+        </div>
+      </div>
+  </section>
+  <!-- End About Section -->
+
+  <!-- Numbers Section -->
+  <section id="numbers" class="parallax">
+    <div class="parallax-overlay">
+      <div class="container">
+        <div class="col-md-6 col-sm-6 col-xs-6">          
+          <span class="counter animated hiding" data-animation="fadeInDown" data-delay="0">
+            <i class="fa fa-group fa-4x"></i>
+            <span class="value" data-from="0" data-to="150">150</span>
+            <small>Students</small>
+          </span>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">          
+          <span class="counter animated hiding" data-animation="fadeInDown" data-delay="500">
+            <i class="fa fa-trophy fa-4x"></i>
+            <span class="value" data-from="0" data-to="450">450</span>
+            <small>Mentors</small>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- End Numbers Section -->
+
+  <!-- Begin Contact Section-->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="title col-md-8 col-sm-10 col-xs-12">
+        <h1>Contact <strong>us</strong></h1>
+        <hr>
+        <p>In case of any trouble, please feel free to reach out.</p>
+      </div>
+    </div>
+
+    <!-- Contact Details -->
+    <div class="contact-details">
+      <div class="container">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="detail">
+            <i class="fa fa-map-marker"></i>
+            <span>Pilani, Rajasthan</span>
           </div>
         </div>
-      
-    
-    <!-- /.container -->
- <!-- Modal -->
-    <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">Login</h4>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="detail">
+            <i class="fa fa-phone"></i>
+            <span>+91-977-206-1558</span>
           </div>
-          <div class="modal-body">
-
-    
-            <%= form_for(:session, url: sessions_path) do |f| %>
-		     <div class="form-group">
-		      <%= f.label :email %>
-		      <%= f.text_field :email,:class=>"form-control",:placeholder=>"Enter email" %>
-		     </div>
-
-		    <div class="form-group">
-		      <%= f.label :password %>
-		      <%= f.password_field :password,:class=>"form-control",:placeholder=>"Enter Password" %>
-		    </div>
-
-		      <%= f.submit "Sign in", class: "btn btn-primary" %>
-		    <% end %>or
-
-            
-            
-            <%=button_to "Login with LinkedIn", login_path, :method => :post,:class=>"btn btn-info" %>
-            
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="detail last">
+            <i class="fa fa-envelope"></i>
+            <span>rohanverma3991@gmail.com</span>
           </div>
-          
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-       
-    <!-- Modal -->
+        </div>
+      </div>
+    </div>
+        <!-- End Contact Form -->
+      </div>
+    </div>        
+  </section>
+  <!-- End Contact Section-->
+
+ 
+<!-- Modal -->
     <div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">Join the Revolution NOW!</h4>
+            <h4 class="modal-title" id="myModalLabel">Register as :</h4>
           </div>
           <div class="modal-body">
 
             <div class="row">
-              <div class="col-md-4 col-md-offset-1">
+              <div class="col-md-3 col-md-offset-1">
                 <%= link_to 'Register as a Student',"/students/new", class: "btn btn-success" %>
 
-              </div>
-              <div class="col-md-4 col-md-offset-1">
+              </div><br><br>
+              <div class="col-md-3 col-md-offset-1">
                 <%= link_to 'Register as an Entrepreneur',"/entrepreneurs/new", class: "btn btn-success" %>
 
-              </div>
-              <div class="col-md-4 col-md-offset-1">
+              </div><br><br>
+              <div class="col-md-3 col-md-offset-1">
                 <%= link_to 'Register as an Mentor',"/mentors/new", class: "btn btn-success" %>
 
               </div>
@@ -172,5 +251,75 @@
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-  </body>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <!-- Social Links -->
+      <ul class="social-list">
+        <li>
+          <a href="https://www.facebook.com/startupsphere" target="_blank">
+            <span class="social-icon">
+              <i class="fa fa-facebook"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/" target="_blank">
+            <span class="social-icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://plus.google.com/" target="_blank">
+            <span class="social-icon">
+              <i class="fa fa-google-plus"></i>
+            </span>
+          </a>
+        </li>
+      </ul>
+      <!-- End Social Links -->
+
+      <!-- Copyright -->
+      <p class="center grey">2015 &copy; Centre for Entrepreneurial Leadership. All rights reserved.</p>
+      <!-- End Copyright -->
+    </div>    
+  </footer>
+  <!-- End Footer --> 
+
+<!-- Modal -->
+    <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Login</h4>
+          </div>
+          <div class="modal-body">
+
+    
+            <%= form_for(:session, url: sessions_path) do |f| %>
+         <div class="form-group">
+          <%= f.label :email %>
+          <%= f.text_field :email,:class=>"form-control",:placeholder=>"Enter email" %>
+         </div>
+
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password,:class=>"form-control",:placeholder=>"Enter Password" %>
+        </div>
+
+          <%= f.submit "Sign in", class: "btn btn-primary"%>
+        <% end %>or
+
+            
+            
+            <%=button_to "Login with LinkedIn", login_path, :method => :post,:class=>"btn btn-info" %>
+            
+          </div>
+          
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</body>
 </html>
