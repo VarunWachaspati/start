@@ -4,18 +4,20 @@ source 'http://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use mysql as the database for Active Record
+gem 'mysql2'
 #gem 'sqlite3', group: [:development, :test]
-gem 'pg'#, group: [:production]
+#gem 'pg'#, group: [:production]
 gem 'heroku', '~> 3.15.0'
 gem 'oauth'
 gem 'json'
 
 #For Encrypting the password
-gem 'bcrypt-ruby', '3.0.1'
+#gem 'bcrypt-ruby', '3.0.1'
 
 gem "sass", "~> 3.2.12"
 gem "bootstrap-sass", "~> 3.0.3.0"
 gem "font-awesome-rails", "~> 4.0.3.1"
+gem 'font-awesome-sass-rails'
 
 #For paginating pages
 gem 'will_paginate', '~> 3.0'
@@ -23,6 +25,8 @@ gem 'bootstrap-will_paginate'
 gem 'rails-simple-search' , "~> 0.9.3"
 
 gem "socialization"
+
+gem "coffee-script-source",'1.7.0'
 
 gem "mailboxer"
 #To make select boxes more friendly
@@ -43,7 +47,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', '~> 0.12.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -69,13 +73,13 @@ end
 #gem 'therubyracer'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+ #gem 'unicorn'
 
 # Use Capistrano for deployment
-#gem 'capistrano', group: :development
+gem 'capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

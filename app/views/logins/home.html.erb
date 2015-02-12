@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="<%= asset_path("favicon.ico") %>" >
+    <link rel="shortcut icon" href="<%= favicon_link_tag 'favicon.ico' %>" >
 
     <!-- Color Scheme -->
     <link id="test" rel="stylesheet" type="text/css" href="css/colors/red.css">
@@ -78,7 +78,7 @@
         </div>
         <!-- End Home Slider -->               
         <hr>
-        <p class="center"><data-toggle="modal" data-target="#RegisterModal" href="#" class="btn btn-empty btn-lg">Get Started</a></p>
+        <p class="center"><a href="#" data-toggle="modal" data-target="#RegisterModal"  class="btn btn-empty btn-lg">Get Started</a></p>
       </div>
     </div>
   </section>
@@ -102,7 +102,7 @@
           <li class="active"><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="team.html#team">Team</a></li>
+         <!-- <li><a href="team.html#team">Team</a></li>-->
           <li><a href="#" data-toggle="modal" data-target="#LoginModal">Login</a></li>
           
 
@@ -162,14 +162,14 @@
         <div class="col-md-6 col-sm-6 col-xs-6">          
           <span class="counter animated hiding" data-animation="fadeInDown" data-delay="0">
             <i class="fa fa-group fa-4x"></i>
-            <span class="value" data-from="0" data-to="150">150</span>
+            <span class="value" data-from="0" data-to="450">450</span>
             <small>Students</small>
           </span>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-6">          
           <span class="counter animated hiding" data-animation="fadeInDown" data-delay="500">
             <i class="fa fa-trophy fa-4x"></i>
-            <span class="value" data-from="0" data-to="450">450</span>
+            <span class="value" data-from="0" data-to="150">150</span>
             <small>Mentors</small>
           </span>
         </div>
@@ -231,15 +231,15 @@
 
             <div class="row">
               <div class="col-md-3 col-md-offset-1">
-                <%= link_to 'Register as a Student',"/students/new", class: "btn btn-success" %>
+                <%= link_to 'Student',"/students/new", class: "btn btn-success" %>
 
               </div><br><br>
               <div class="col-md-3 col-md-offset-1">
-                <%= link_to 'Register as an Entrepreneur',"/entrepreneurs/new", class: "btn btn-success" %>
+                <%= link_to 'Entrepreneur',"/entrepreneurs/new", class: "btn btn-success" %>
 
               </div><br><br>
               <div class="col-md-3 col-md-offset-1">
-                <%= link_to 'Register as an Mentor',"/mentors/new", class: "btn btn-success" %>
+                <%= link_to 'Mentor',"/mentors/new", class: "btn btn-success" %>
 
               </div>
             </div>
