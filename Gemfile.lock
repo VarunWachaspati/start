@@ -215,7 +215,7 @@ DEPENDENCIES
   paperclip (~> 3.0)
   rails (= 4.0.0)
   rails-simple-search (~> 0.9.3)
-  rake
+  rake (~> 10.4.2)
   sass (~> 3.2.12)
   sass-rails (~> 4.0.5)
   sdoc

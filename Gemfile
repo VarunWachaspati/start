@@ -58,7 +58,7 @@ gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 #BUndler for production
-gem 'bundler', '~> 1.7.12'
+#gem 'bundler', '~> 1.7.12'
 #Rake for heroku
 gem 'rake', '~> 10.4.2'
 
