@@ -58,9 +58,9 @@ gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 #BUndler for production
-#gem 'bundler', '~> 1.6.3'
+gem 'bundler', '~> 1.7.12'
 #Rake for heroku
-gem 'rake'
+gem 'rake', '~> 10.4.2'
 
 #Gravatar Image tag Gem(Temporary)
 #gem 'gravatar-image-tag'
