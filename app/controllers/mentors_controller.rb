@@ -64,7 +64,6 @@ def follow
     $purpose="Edit"
     @user = Mentor.find(params[:id])
     expertise = params[:expertise]|| []
-
   end
 
   def updatepwd
@@ -104,6 +103,8 @@ def message
   def update
     @user = Mentor.find(params[:id])
     #params[:student].delete(:password) if params[:student][:password].blank?
+    #expertise = params[:expertise].to_s|| []
+    
     if @user.update_attributes(edit_user_params)
       # Handle a successful update.
       flash[:success] = "Profile updated"
@@ -120,11 +121,11 @@ def message
   private
 
     def user_params
-      params.require(:mentor).permit(:fname, :lname, :email,:password,:password_confirmation,:expertise,:mentor_interest,:time_devoted_monthly,:ways_can_help)
+      params.require(:mentor).permit(:fname, :lname, :email,:password,:password_confirmation,:time_devoted_monthly,:ways_can_help,:expertise => [],:mentor_interest =>[])
     end
 
     def edit_user_params
-      params.require(:mentor).permit(:fname, :lname, :email,:skills,:bio,:google,:fb,:github,:pic,:password,:password_confirmation,:education,:linkedin,:phone,:expertise,:mentor_interest,:time_devoted_monthly,:ways_can_help)
+      params.require(:mentor).permit(:fname, :lname, :email,:skills,:bio,:google,:fb,:github,:pic,:password,:password_confirmation,:education,:linkedin,:phone,:time_devoted_monthly,:ways_can_help,:expertise => [],:mentor_interest => [])
     end
 
 end

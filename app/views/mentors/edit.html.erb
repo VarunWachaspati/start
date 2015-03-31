@@ -21,11 +21,90 @@
 
       <%= f.label :bio, "Education and Experience" %>
       <%= f.text_area :education,:class=>"form-control" %>
-       <%= f.label :expertise,"Kindly enter your field of expertise" %>
-      <%= f.text_area :expertise,:class=>"form-control" %>      
+      
+      <strong><%= f.label :expertise,"Kindly select your field of expertise" %></strong>
+      
+      <br>
+      <%= f.label :expertise,"Fundraising" %> 
+      <%= f.check_box :expertise,{:id=>1,multiple: true},"Fundraising","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :expertise,"Enhancing Sales" %> 
+      <%= f.check_box :expertise,{:id=>2,multiple: true},"Enhancing Sales","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :expertise,"Marketing" %> 
+      <%= f.check_box :expertise,{:id=>"3",multiple: true},"Marketing","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :expertise,"UI/Design" %> 
+      <%= f.check_box :expertise,{:id=>"4",multiple: true},"UI/Design","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :expertise,"Industrial Design" %> 
+      <%= f.check_box :expertise,{:id=>"5",multiple: true},"Industrial Design","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :expertise,"Engineering - Software" %> 
+      <%= f.check_box :expertise,{:id=>"6",multiple: true},"Engineering - Software","" %>
+      <br>
+      <%= f.label :expertise,"Engineering - Biomedical" %> 
+      <%= f.check_box :expertise,{:id=>"7",multiple: true},"Engineering - Biomedical","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :expertise,"Engineering - Electrical" %> 
+      <%= f.check_box :expertise,{:id=>"8",multiple: true},"Engineering - Electrical","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :expertise,"Engineering - Mechanical" %> 
+      <%= f.check_box :expertise,{:id=>"9",multiple: true},"Engineering - Mechanical","" %>
+      <br>
 
+      
       <%= f.label :mentor_interest,"Fields that Interest you :" %>
-      <%= f.text_area :mentor_interest,:class=>"form-control" %>
+      <br>
+      <%= f.label :mentor_interest,"3D Printing" %>
+      <%= f.check_box :mentor_interest,{multiple: true},"3D Printing","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :mentor_interest,"Advertising" %>
+      <%= f.check_box :mentor_interest,{multiple: true},"Advertising","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :mentor_interest,"Commerce" %>
+      <%= f.check_box :mentor_interest,{multiple: true},"Commerce","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :mentor_interest,"Consumer Electronics" %>
+      <%= f.check_box :mentor_interest,{multiple: true},"Consumer Electronics","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :mentor_interest,"Big Data & Analytics" %>
+      <%= f.check_box :mentor_interest,{multiple: true},"Big Data & Analytics","" %>
+      <br>
+      <%= f.label :mentor_interest,"Education" %>
+      <%= f.check_box :mentor_interest,{multiple: true},"Education","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :mentor_interest,"Financial Services" %>
+      <%= f.check_box :mentor_interest,{multiple: true},"Financial Services","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :mentor_interest,"Hardware for Computing Systems" %>
+      <%= f.check_box :mentor_interest,{multiple: true},"Hardware for Computing Systems","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :mentor_interest,"Healthcare" %>
+      <%= f.check_box :mentor_interest,{multiple: true},"Healthcare","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :mentor_interest,"Media/Music" %>
+      <%= f.check_box :mentor_interest,{multiple: true},"Media/Music","" %>
+      <br>
+      <%= f.label :mentor_interest,"Payments" %>
+      <%= f.check_box :mentor_interest,{multiple: true},"Payments","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :mentor_interest,"Robotics" %>
+      <%= f.check_box :mentor_interest,{multiple: true},"Robotics","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :mentor_interest,"Sports" %>
+      <%= f.check_box :mentor_interest,{multiple: true},"Sports","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :mentor_interest,"Software for Computing Systems" %>
+      <%= f.check_box :mentor_interest,{multiple: true},"Software for Computing Systems","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :mentor_interest,"Transportation/Travel" %>
+      <%= f.check_box :mentor_interest,{multiple: true},"Transportation/Travel","" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= f.label :mentor_interest,"Wearable Tech" %>
+      <%= f.check_box :mentor_interest,{multiple: true},"Wearable Tech","" %>
+      <br>
+
       <%= f.label :time_devoted_monthly,"Time you can devote in a month : " %>
       <%= f.text_field :time_devoted_monthly,:class=>"form-control" %>
       

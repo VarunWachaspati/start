@@ -1,5 +1,7 @@
 class Mentor < ActiveRecord::Base
   acts_as_messageable
+  serialize :expertise
+  serialize :mentor_interest
 before_save { self.email = email.downcase }
    before_create :create_remember_token
    validates :fname, presence: true, length: { maximum: 20 }

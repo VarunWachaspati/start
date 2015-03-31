@@ -44,9 +44,12 @@
                  <%= image_tag("profile.jpg") %><br><br> 
            <% end %>
     <h2><%= @user.fname %>&nbsp<%= @user.lname %></h2>
-    
-      <%= button_to "Send Message",{:controller => "messages", :action => "new",:id => (@mentor).id},  :method=>:post,:class=>"btn btn-primary btn-small btn-block" %><br>
-      
+    <% if signed_in? %>
+      <%  @email=current_user.email %>
+       <%   @tempuser=Users.find_by(email: @email) %>
+     <% if !(@tempuser.type) =="Student" %>
+     <%= button_to "Send Message",{:controller => "messages", :action => "new",:id => (@mentor).id},  :method=>:post,:class=>"btn btn-primary btn-small btn-block" %><br>
+      <%end%><%end%>
   </div><br>
   <div class="well">
     <div class="row">
@@ -88,10 +91,12 @@
         </h6>
         <hr>
         <div class="">
-          <p>Expertise: <a href="#"><%= @user.expertise %></a></p>
+          <p>Expertise: <a href="#"><%= @user.expertise.join %></a></p>
           <p>Email: <a href="#"><%= @user.email %></a></p>
+         <% if !(@tempuser.type) =="Student" %>
           <p>Phone: <a href="#"><%= @user.phone %></a></p>
-          <p>Mentoring Interests: <a href="<%= @user.github %>"><%= @user.mentor_interest %></a></p>
+          <%end%>
+          <p>Mentoring Interests: <a href="<%= @user.github %>"><%= @user.mentor_interest.join %></a></p>
           <p>Links:&nbsp&nbsp <a href="<%= @user.fb %>"><i class="fa fa-facebook"></i></a>&nbsp&nbsp&nbsp&nbsp<a href="<%= @user.google %>"><i class="fa fa-google-plus"></i></a>&nbsp&nbsp&nbsp&nbsp<a href="<%= @user.linkedin %>"><i class="fa fa-linkedin"></i></a></p>
         </div>
       </div>

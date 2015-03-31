@@ -16,8 +16,8 @@
       <ul class="nav navbar-nav">
        <% if signed_in? %>
         <li><a href="/allstartups">Startups</a></li>
-        <li><a href="/allentrepreneurs">Founders</a></li>
-        <li><a href="/allstudents">Developers</a></li>
+        <li><a href="/allentrepreneurs">Entrepreneurs</a></li>
+        <li><a href="/allstudents">Students</a></li>
         <li><a href="/allmentors">Mentors</a></li>
       </ul>
 
@@ -42,7 +42,7 @@
          %>
         <li><a href="/sfollowing">Following</a>
         <%else%>
-         <li><a href="/myent">Wannabe Apprentices</a>
+         <li><a href="/myent">Aspiring Apprentices</a>
      <% end %>
 <% end %>
      <li><%= link_to "Home",current_user %></a></li>

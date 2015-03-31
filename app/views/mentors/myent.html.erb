@@ -11,10 +11,11 @@
           <div class="tile">
             <%= image_tag  "logo.png",:class=>"tile-image big-illustration" %>
             <h3 class="tile-title"><%=link_to entrepreneur.fname+" "+entrepreneur.lname,entrepreneur %></h3>
-            
+            <br><br>
         <% if user_type=="Mentor" %>
-            
-     <%= button_to "Follow",{:controller => "entrepreneurs", :action => "follow",:id => entrepreneur.id},  :method=>:post,:class=>"btn btn-primary btn-large btn-block" %>
+            <br><br>
+     <%= button_to "Accept Request",{:controller => "entrepreneurs", :action => "follow",:id => entrepreneur.id},  :method=>:post,:class=>"btn btn-primary btn-large btn-block" %>
+<br><br>
   <% end %>
 <% end %>
 
