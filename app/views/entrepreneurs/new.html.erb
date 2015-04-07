@@ -1,8 +1,24 @@
+<style type="text/css">.trans{
+    margin: 50px;
+    background-color: #F3F0F5;
+    border: 1px solid black;
+    opacity: 0.95;
+    height: 475px;
+    border-radius: 25px;
+    box-shadow: 5px 5px 2px #888888;
+}
+h5{
+  text-shadow: 2px 2px #888888;
+  color: #0F0F0F;
+  font-size: 35px;
+  font-weight: bold;
+}
+</style>
 <% provide(:title, 'Sign up') %>
 <% if lcurrent_user %>
 <div class="container">
     <div class="page-header">
-      <h4>Sign up</h4>
+      <h5>Sign up</h5>
     </div>
 
 <div class="field col-md-5">
@@ -36,9 +52,9 @@
 <% else %>
 <div class="container">
     <div class="page-header">
-      <h4>Sign up</h4>
+      <h5>Sign up</h5>
     </div>
-
+<div class="trans">
 <div class="field col-md-5">
     <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages' %>
@@ -48,19 +64,24 @@
       <% end %>
     </div>
 
-      <%= f.label :fname,"First Name" %>
+      <b><h8>First Name :</h8></b>
+      <% f.label :fname,"First Name" %>
       <%= f.text_field :fname,:class=>"form-control" %>
 
-      <%= f.label :lname,"Last Name" %>
+      <b><h8>Last Name :</h8></b>
+      <% f.label :lname,"Last Name" %>
       <%= f.text_field :lname,:class=>"form-control" %>
 
-      <%= f.label :email %>
+      <b><h8>Email :</h8></b>
+      <% f.label :email %>
       <%= f.text_field :email,:class=>"form-control" %>
 
-      <%= f.label :password %>
+      <b><h8>Password :</h8></b>
+      <% f.label :password %>
       <%= f.password_field :password,:class=>"form-control" %>
 
-      <%= f.label :password_confirmation, "Re-enter Password" %>
+      <b><h8>Re-Enter Password :</h8></b>
+      <% f.label :password_confirmation, "Re-enter Password" %>
       <%= f.password_field :password_confirmation,:class=>"form-control" %>
       <br>
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
@@ -68,5 +89,6 @@
 </div>
  <h4>or</h4>
   <%=button_to "Sign Up with LinkedIn", login_path, :method => :post, class: "btn btn-large btn-primary" %>
+</div>
 </div>
 <% end %>
